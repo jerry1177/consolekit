@@ -1,4 +1,7 @@
 #pragma once
+
+#include <string_view>
+
 namespace consolekit {
     enum class Color {
         Default,

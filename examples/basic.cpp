@@ -7,6 +7,18 @@ int main() {
 	console.println("My name is Jerry!");
 	console.printError("you should not have done that!");
 
+    consolekit::Composer msg;
+    msg.text("Hello");
+    console.println(msg.view());
+
+    msg.clear();
+
+    msg.color(consolekit::Color::Green)
+       .text("Connected")
+       .resetColor();
+
+    console.println(msg.view());
+
 	// colors example
 	console.println(consolekit::Color::Default, "Default");
 
