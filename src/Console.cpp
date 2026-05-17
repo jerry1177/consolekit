@@ -21,10 +21,15 @@ namespace consolekit {
     }
 
     void Console::print(std::string_view text) {
-        print(Color::Default, text);
+        m_buffer.clear();
+        m_buffer.pushText(text);
+        m_buffer.flush(STDOUT_FILENO);
     }
     void Console::println(std::string_view text) {
-        println(Color::Default, text);
+        m_buffer.clear();
+        m_buffer.pushText(text);
+        m_buffer.pushNewLine();
+        m_buffer.flush(STDOUT_FILENO);
     }
 
     void Console::printError(std::string_view text) {
@@ -35,7 +40,7 @@ namespace consolekit {
         m_buffer.pushText(text);
         m_buffer.pushReset();
         m_buffer.pushNewLine();
-        m_buffer.flush(STDOUT_FILENO);
+        m_buffer.flush(STDERR_FILENO);
     }
 
     std::string Console::getString(std::string_view prompt){

@@ -15,5 +15,7 @@ int main() {
 
     console.println(msg.view());
 
+    console.printError("Failed to connect!");
+
     return 0;
 }
